@@ -1,6 +1,7 @@
 FROM centos:latest
 
 MAINTAINER axemc:192119741@qq.com
+# https://blog.csdn.net/weixin_41831919/article/details/109035936
 
 RUN set -x && \
   yum -y install openssl openssh-server openssh-clients && \
