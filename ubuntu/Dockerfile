@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 MAINTAINER axemc:192119741@qq.com
 
-# 参考文档L：
+# 参考文档:
 # https://blog.csdn.net/winter2121/article/details/118223637
 
 RUN apt update -y && apt upgrade -y && apt install vim openssh-server -y

@@ -2,7 +2,7 @@ FROM alpine:latest
 
 MAINTAINER axemc:192119741@qq.com
 
-# 参考文档：
+# 参考文档:
 # https://blog.csdn.net/AMimiDou_212/article/details/106502393
 
 RUN apk update && apk upgrade && apk add vim openssh \
