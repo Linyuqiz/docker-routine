@@ -11,4 +11,5 @@ axemc-rocky:
 	docker build -t axemc-rocky -f ./rocky/Dockerfile ./rocky
 
 axemc-ubuntu:
-	docker build -t axemc-ubuntu -f ./ubuntu/Dockerfile ./ubuntu
+	docker build -t axemc-ubuntu:latest -f ./ubuntu/Dockerfile ./ubuntu
+	docker run -itd --name axemc-ubuntu -p 22222:22 axemc-ubuntu:latest

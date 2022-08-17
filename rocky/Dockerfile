@@ -1,4 +1,4 @@
-FROM rockylinux:latest
+FROM rockylinux:9.0
 
 MAINTAINER axemc:192119741@qq.com
 # https://blog.csdn.net/weixin_41831919/article/details/109035936
