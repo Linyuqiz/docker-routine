@@ -2,18 +2,15 @@ FROM alpine:latest
 
 MAINTAINER axemc:192119741@qq.com
 
-# 替换阿里云的并更新源、安装openssh 并修改配置文件和生成key 并且同步时间
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
-	&& apk update \
-	&& apk add --no-cache openssh tzdata \
-	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+# 参考文档：
+# https://blog.csdn.net/AMimiDou_212/article/details/106502393
+
+RUN apk update && apk upgrade && apk add vim openssh \
 	&& sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config \
 	&& ssh-keygen -t dsa -P "" -f /etc/ssh/ssh_host_dsa_key \
 	&& ssh-keygen -t rsa -P "" -f /etc/ssh/ssh_host_rsa_key \
 	&& ssh-keygen -t ecdsa -P "" -f /etc/ssh/ssh_host_ecdsa_key \
 	&& ssh-keygen -t ed25519 -P "" -f /etc/ssh/ssh_host_ed25519_key \
-	&& echo "root:admin" | chpasswd
-
-EXPOSE 22
+	&& echo "root:1234" | chpasswd
 
 CMD ["/usr/sbin/sshd", "-D"]
